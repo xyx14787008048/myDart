@@ -7,14 +7,14 @@ void core(){
 
 
   //在字符串中，请以 ${表达式} 的形式使用表达式，如果表达式是一个标识符，可以省略掉 {}
+  //其他一些工具，比如 dart run 以及 [dart compile js][] 通过在运行 Dart 程序时添加命令行参数 --enable-asserts 使 assert 生效。
   var s = 'string interpolation';
   assert('Dart has $s, which is very handy.' =='Dart has string interpolation, ''which is very handy.');
-  assert('That deserves all caps. ''${s.toUpperCase()} is very handy!' =='That deserves all caps. ''STRING INTERPOLATION is very handy!');
+  assert('That deserves all caps. ''${s.toUpperCase()} is very handy!' !='That deserves all caps. ''STRING INTERPOLATION is very handy!');
+  //上面这行加--enab-asserts会报错
 }
 
 void main(){
   core();
   var s = 'string interpolation';
-  assert('Dart has $s, which is very handy.' =='Dart has string interpolation, ''which is very handy.');
-  assert('That deserves all caps. ''${s.toUpperCase()} is very handy!' =='That deserves all caps. ''STRING INTERPOLATION is very handy!');
 }
